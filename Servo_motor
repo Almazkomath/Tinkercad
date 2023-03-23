@@ -1,0 +1,23 @@
+// If the PIR sensor detects an infrared light, then rotate the servomotor by 120 degrees.
+//C++ code
+//
+#include <Servo.h>
+int sensorState = 0;
+int servoPin = 9;
+Servo servo;
+int angle=0;
+void setup()
+{
+  Serial.begin(9600);
+  servo.attach(servoPin);
+  pinMode(3, OUTPUT);
+}
+
+void loop()
+{
+  sensorState = digitalRead(2);
+  if (sensorState==HIGH){
+    servo.write(120);
+    delay(1000);}
+}
+    
